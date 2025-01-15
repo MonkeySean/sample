@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Service Frontend</title>
+</head>
+<body>
+    <h1>Simple Service Frontend</h1>
+    <button id="serviceButton">Get Service Message</button>
+    <p id="serviceMessage"></p>
+    <input type="text" id="serviceTextBox" readonly>
+
+    <script>
+        document.getElementById('serviceButton').addEventListener('click', function() {
+            fetch('http://localhost:8080/service')
+                .then(response => response.text())
+                .then(data => {
+                    const message = data || "Default message";
+                    document.getElementById('serviceMessage').innerText = message;
+                    document.getElementById('serviceTextBox').value = message;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    const defaultMessage = "Default message";
+                    document.getElementById('serviceMessage').innerText = defaultMessage;
+                    document.getElementById('serviceTextBox').value = defaultMessage;
+                });
+        });
+    </script>
+</body>
+</html>
