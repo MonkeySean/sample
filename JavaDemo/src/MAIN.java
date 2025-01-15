@@ -1,6 +1,5 @@
-package com.coderabbit.demo;
+package src;
 
-import com.coderabbit.demo.service.SimpleService;
 
 public class MAIN {
     public static void main(String[] args) {
@@ -8,5 +7,6 @@ public class MAIN {
         SimpleService service = new SimpleService();
         service.printMessage();
         System.out.println("Happy new year !!!!");
+        System.out.println(service.getMessage());
     }
 }
