@@ -1,3 +1,4 @@
+package src;
 public class SimpleService {
     public String getMessage() {
         return "This is a simple service message.";
